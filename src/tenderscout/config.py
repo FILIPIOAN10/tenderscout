@@ -1,5 +1,6 @@
 from typing import Literal
 
+from pydantic import SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -16,7 +17,8 @@ class Settings(BaseSettings):
 
     llm_provider: Literal["openai", "fake"] = "fake"
     embedding_provider: Literal["openai", "fastembed", "fake"] = "fastembed"
-    openai_api_key: str = ""
+    openai_api_key: SecretStr = SecretStr("")
+    openai_model: str = "gpt-4.1-mini"
 
 
 settings = Settings()

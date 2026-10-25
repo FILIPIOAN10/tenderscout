@@ -1,8 +1,5 @@
-# Adaugă regulile standard în .gitignore
-@"
 __pycache__/
 *.py[cod]
-*$py.class
 .venv/
 .env
 .pytest_cache/
@@ -11,9 +8,3 @@ __pycache__/
 dist/
 build/
 *.egg-info/
-"@ | Set-Content .gitignore
-
-# Scoate fișierele .pyc deja indexate din Git (fără să le șteargă de pe disc)
-git rm -r --cached src/tenderscout/__pycache__ src/tenderscout/api/__pycache__ tests/__pycache__
-git add .gitignore
-git commit --amend -m "feat(m1): project skeleton, fastapi healthcheck, docker-compose and CI"
